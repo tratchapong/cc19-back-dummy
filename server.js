@@ -2,13 +2,14 @@ require('dotenv').config()
 const express = require('express')
 const notFound = require('./middlewares/not-found')
 const errorHandling = require('./middlewares/error-handling')
-const { upload } = require('./controllers/x-controller')
+const { upload, login } = require('./controllers/x-controller')
 const cors = require('cors')
 const app = express()
 
 app.use(cors())
 app.use(express.json())
 
+app.post('/login', login)
 app.post('/upload', upload)
 
 app.use(notFound)
