@@ -38,7 +38,15 @@ module.exports.login = tryCatch(async (req, res, next) => {
 	res.json({ msg: 'Login successful', token: token, user: userData })
 })
 
-module.exports.upload = tryCatch( async (req, res) => {
+module.exports.profilePic = tryCatch( async (req, res) => {
+	const {profileImage} = req.body
 
-	res.json({msg: 'upload...'})
+	const updateUser = await prisma.user.update({
+		where: { id : req.user.id},
+		data: { profileImage : profileImage}
+	})
+
+	res.json({msg: 'change profile image successfully', updateUser})
 } )
+
+

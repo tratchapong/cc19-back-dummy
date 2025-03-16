@@ -2,15 +2,16 @@ require('dotenv').config()
 const express = require('express')
 const notFound = require('./middlewares/not-found')
 const errorHandling = require('./middlewares/error-handling')
-const { upload, login } = require('./controllers/x-controller')
+const { profilePic, login } = require('./controllers/x-controller')
 const cors = require('cors')
+const authenticate = require('./middlewares/authenticate')
 const app = express()
 
 app.use(cors())
 app.use(express.json())
 
 app.post('/login', login)
-app.post('/upload', upload)
+app.patch('/profile-pic', authenticate , profilePic)
 
 app.use(notFound)
 app.use(errorHandling)

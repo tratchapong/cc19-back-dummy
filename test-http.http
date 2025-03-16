@@ -7,3 +7,15 @@ content-type: application/json
 }
 ###
 
+PATCH http://localhost:8889/profile-pic
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQyMTAyODIwLCJleHAiOjE3NDMzOTg4MjB9.Z1zBRI6k5piXk1CCGny0reg-dL4ucwCQ0An60UOWv2A
+
+{
+    "profileImage" : "https://www.svgrepo.com/show/420364/avatar-male-man.svg"
+}
+
+###
+
+
+// "https://www.svgrepo.com/show/420364/avatar-male-man.svg",
